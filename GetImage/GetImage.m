@@ -30,6 +30,8 @@
             
             [[NSNotificationCenter defaultCenter]postNotificationName:name object:image];
             
+            [[NSNotificationCenter defaultCenter]removeObserver:target name:name object:nil];
+            
         }
     
     }];
