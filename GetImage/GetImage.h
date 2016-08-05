@@ -13,4 +13,6 @@
 
 + (void)getImageWithURL:(NSString *)urlstring Target:(id)target Action:(SEL)action Name:(NSString *)name;
 
++ (void)getImageWithURL:(NSString *)urlstring Completion:(void(^)(UIImage *))completion;
+
 @end

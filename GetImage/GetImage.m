@@ -40,4 +40,30 @@
     
 }
 
++ (void)getImageWithURL:(NSString *)urlstring Completion:(void(^)(UIImage *))completion {
+
+    NSURL *url = [NSURL URLWithString:urlstring];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithRequest:request completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error){
+    
+        if (error == nil) {
+            
+            NSData *data = [NSData dataWithContentsOfURL:location];
+            
+            UIImage *image = [UIImage imageWithData:data];
+            
+            completion(image);
+            
+        }
+        
+    }];
+    
+    [downloadTask resume];
+
+}
+
 @end
