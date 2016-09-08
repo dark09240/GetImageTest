@@ -11,8 +11,10 @@
 
 @interface GetImage : NSObject
 
-+ (void)getImageWithURL:(NSString *)urlstring Target:(id)target Action:(SEL)action Name:(NSString *)name;
+NS_ASSUME_NONNULL_BEGIN
 
-+ (void)getImageWithURL:(NSString *)urlstring Completion:(void(^)(UIImage *))completion;
++ (void)getImageWithURL:(NSString *)urlstring Completion:(void(^)(UIImage * __nullable image, NSError * __nullable error))completion;
+
+NS_ASSUME_NONNULL_END
 
 @end
